@@ -18,9 +18,9 @@ class EditComponent extends Component {
         <div key={this.props.post.id} className="post">
           <form className="form" onSubmit={this.handleEdit}>
             <input required type="text" ref={(input) => this.getTitle = input}
-                   defaultValue={this.props.post.title} placeholder="Enter Post Title" /><br /><br />
+                   defaultValue={this.props.post.title} placeholder="Enter IP address of Swarm Node to connect to" /><br /><br />
             <textarea required rows="5" ref={(input) => this.getMessage = input}
-                      defaultValue={this.props.post.message} cols="28" placeholder="Enter Post" /><br /><br />
+                      defaultValue={this.props.post.message} cols="28" placeholder="Add a name or description" /><br /><br />
             <button>Update</button>
           </form>
         </div>
