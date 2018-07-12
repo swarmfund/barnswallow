@@ -1,3 +1,5 @@
+import { Swarm } from 'swarm-sdk'
+
 const postReducer = (state = [], action) => {
   switch (action.type) {
     case 'ADD_POST':
@@ -16,9 +18,29 @@ const postReducer = (state = [], action) => {
             editing: !post.editing
           }
         } else return post;
-      })
+      });
+    case 'INFO_POST':
+      testSDK();
+      return state;
     default:
       return state;
   }
 }
 export default postReducer;
+
+
+async function testSDK () {
+  let sdk = await Swarm.create('https://api-stage.swarm.fund');
+  //let page = await sdk.horizon.balances.getPage();
+
+  let { wallet, recoverySeed } = await sdk.api.wallets.create(
+      'daniel@swarm.fund',
+      'MyPassw0rd'
+  );
+
+  await sdk.api.wallets.get();
+  // Get the confirmation token from email
+
+
+  console.log('sdk', sdk)
+}
