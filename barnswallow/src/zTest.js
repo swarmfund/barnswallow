@@ -3,27 +3,23 @@
 document.write('Quick Test');
 console.log('app loaded');
 
-//
 
-/*
-async function sdkStart()
+
+
+async function sdk()
 {
   let sdk = await Swarm.create('https://api-stage.swarm.fund');
+
+  document.write( sdk.horizon.server.transactions().forAccount()
+
+
   //let page = await sdk.horizon.balances.getPage();
+  return sdk;
 }
 
-
-async function createWallet()
-{
-  let { wallet, recoverySeed } = await sdk.api.wallets.create(
-      'daniel@regen.network',
-      'MyPassw0rd'
-  );
-}
 
 console.log('starting...');
 
-sdkStart();
-createWallet();
 
-*/
+
+createWallet();
