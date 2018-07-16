@@ -2,7 +2,7 @@
   "name": "barnswallow",
   "version": "0.1.0",
   "private": true,
-  "entry point": "index.js",
+  "entry point": "index.html",
   "dependencies": {
     "ajv": "^6.5.2",
     "react": "^16.4.1",
