@@ -1,9 +1,7 @@
-//import { Swarm } from 'swarm-sdk';
+import { Swarm } from 'swarm-sdk';
 
 document.write('Quick Test');
 console.log('app loaded');
-
-
 
 
 async function sdk()
