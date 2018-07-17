@@ -19,6 +19,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
+    "babel-preset-env": "^1.7.0",
     "webpack-cli": "^3.0.8",
     "webpack-command": "^0.4.1"
   }
