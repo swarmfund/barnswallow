@@ -15,7 +15,7 @@ async function sdk()
   let page = await sdk.horizon.balances.getPage();
   console.log('Page', page.data);
 
-  let prevPage = await page.fetchPrev()
+  let prevPage = await page.fetchPrev();
   console.log('Previous page', prevPage.data);
 
   //let page = await sdk.horizon.balances.getPage();
@@ -25,6 +25,5 @@ async function sdk()
 
 console.log('starting...');
 
+sdk();
 
-
-createWallet();
