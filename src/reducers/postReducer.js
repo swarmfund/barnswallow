@@ -19,9 +19,18 @@ const postReducer = (state = [], action) => {
           }
         } else return post;
       });
-    case 'INFO_POST':
-      testSDK();
-      return state;
+    case 'FETCH_BALANCE':
+      console.log('FETCH_BALANCE', state);
+      var accountId = fetchBalanceFromSwarmSdk();
+
+      return state.map((post) => {
+        if (post.id === action.id) {
+          return {
+            ...post,
+            log: 'See console for results',
+          }
+        } else return post;
+      });
     default:
       return state;
   }
@@ -29,18 +38,43 @@ const postReducer = (state = [], action) => {
 export default postReducer;
 
 
-async function testSDK () {
+async function fetchBalanceFromSwarmSdk()
+{
+
+  console.log( "Swarm...");
+
   let sdk = await Swarm.create('https://api-stage.swarm.fund');
-  //let page = await sdk.horizon.balances.getPage();
 
-  let { wallet, recoverySeed } = await sdk.api.wallets.create(
-      'daniel@swarm.fund',
-      'MyPassw0rd'
-  );
+  //let wallet = await sdk.api.wallets.get('daniel@swarm.fund', 'your password');
+  let wallet = await sdk.api.wallets.get('preethi@swarm.fund', 'abc123');
+  sdk.useWallet(wallet);
+  console.log(sdk.wallet.accountId);
 
-  await sdk.api.wallets.get();
-  // Get the confirmation token from email
+  let page = await sdk.horizon.balances.getPage();
+  console.log('Page', page.data);
 
-
-  console.log('sdk', sdk)
+  return sdk;
 }
+
+
+/*
+// this is the reducer - no 'async' on the outer function since it just returns a function
+export const login = (username, password) => {
+
+  // this one's 'async'
+  return async dispatch => {
+
+    // wrap in try to listen for Promise rejections - equivalent of '.catch()'
+    try {
+
+      // wait for the fetch to finish then dispatch the result
+      const data = await loginRequest(username, password);
+      dispatch(loginSuccess(data));
+    } catch (e) {
+
+      // catch errors from fetch
+      dispatch(loginFailure(e));
+    }
+  };
+};
+*/

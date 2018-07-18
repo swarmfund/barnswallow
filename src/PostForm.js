@@ -21,12 +21,13 @@ class PostForm extends Component {
   render() {
     return (
         <div className="post-container">
-          <h1 className="post_heading">Connect to Swarm Node</h1>
+          <h1 className="post_heading">Connect to Staging</h1>
+          <p className="post_subtitle">https://invest-stage.swarm.fund/</p>
           <form className="form" onSubmit={this.handleSubmit} >
             <input required type="text" ref={(input) => this.getTitle = input}
-                   placeholder="Enter IP address of Swarm Node to connect to" /><br /><br />
-            <textarea required rows="5" ref={(input) => this.getMessage = input}
-                      cols="28" placeholder="Add a name or description" /><br /><br />
+                   placeholder="Enter username" /><br /><br />
+            <input required type="password" ref={(input) => this.getMessage = input}
+                   placeholder="Enter password" /><br /><br />
             <button>Submit</button>
           </form>
         </div>
