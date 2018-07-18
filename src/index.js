@@ -1,4 +1,5 @@
-//import { Swarm } from 'swarm-sdk';
+import { Swarm } from 'swarm-sdk';
+import { Wallet } from 'swarm-sdk';
 import _ from 'lodash';
 
 
@@ -17,7 +18,16 @@ function component()
 
 async function sdk()
 {
-//  let sdk = await Swarm.create('https://api-stage.swarm.fund');
+
+  console.log( "Swarm...");
+
+  let sdk = await Swarm.create('https://api-stage.swarm.fund');
+
+  let wallet = await sdk.api.wallets.get('daniel@swarm.fund', 'your password')
+  sdk.useWallet(wallet);
+
+  console.log(sdk.wallet.accountId);
+
 
   //document.write( sdk.horizon.server.transactions().forAccount() );
 
@@ -34,6 +44,6 @@ async function sdk()
 
 console.log('starting...');
 
-//sdk();
+sdk();
 
 document.body.appendChild(component());
