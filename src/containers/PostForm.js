@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
+import {
+  ADD_POST
+} from '../constants/ActionTypes';
+
+import { post } from '../reducers/post';
+
 class PostForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
@@ -12,12 +19,12 @@ class PostForm extends Component {
       editing: false
     }
     this.props.dispatch({
-      type: 'ADD_POST',
+      type: ADD_POST,
       data
-    })
+    });
     this.getTitle.value = '';
     this.getMessage.value = '';
-  }
+  };
   render() {
     return (
         <div className="post-container">

@@ -1,14 +1,24 @@
 import { Swarm } from 'swarm-sdk'
 
-const postReducer = (state = [], action) => {
+import {
+  ADD_POST,
+  DELETE_POST,
+  EDIT_POST,
+  UPDATE,
+  FETCH_BALANCE
+} from '../constants/ActionTypes';
+
+const initialState = [];
+
+const post = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_POST':
-      return state.concat([action.data])
-    case 'DELETE_POST':
-      return state.filter((post) => post.id !== action.id)
-    case 'EDIT_POST':
-      return state.map((post) => post.id === action.id ? { ...post, editing: !post.editing } : post)
-    case 'UPDATE':
+    case ADD_POST:
+      return state.concat([action.data]);
+    case DELETE_POST:
+      return state.filter((post) => post.id !== action.id);
+    case EDIT_POST:
+      return state.map((post) => post.id === action.id ? { ...post, editing: !post.editing } : post);
+    case UPDATE:
       return state.map((post) => {
         if (post.id === action.id) {
           return {
@@ -19,8 +29,8 @@ const postReducer = (state = [], action) => {
           }
         } else return post;
       });
-    case 'FETCH_BALANCE':
-      console.log('FETCH_BALANCE', state);
+    case FETCH_BALANCE:
+      console.log(FETCH_BALANCE, state);
       var accountId = fetchBalanceFromSwarmSdk();
 
       return state.map((post) => {
@@ -34,9 +44,9 @@ const postReducer = (state = [], action) => {
     default:
       return state;
   }
-}
-export default postReducer;
+};
 
+export default post;
 
 async function fetchBalanceFromSwarmSdk()
 {
@@ -44,8 +54,7 @@ async function fetchBalanceFromSwarmSdk()
   console.log( "Swarm...");
 
   let sdk = await Swarm.create('https://api-stage.swarm.fund');
-
-  //let wallet = await sdk.api.wallets.get('daniel@swarm.fund', 'your password');
+  
   let wallet = await sdk.api.wallets.get('preethi@swarm.fund', 'abc123');
   sdk.useWallet(wallet);
   console.log(sdk.wallet.accountId);

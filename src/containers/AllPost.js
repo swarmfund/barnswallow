@@ -7,12 +7,7 @@ class AllPost extends Component {
     return (
         <div>
           <h1 className="post_heading">All Connections</h1>
-          {this.props.posts.map((post) => (
-              <div key={post.id}>
-                {post.editing ? <EditComponent post={post} key={post.id} /> : <Post post={post}
-                                                                                    key={post.id} />}
-              </div>
-          ))}
+
         </div>
     );
   }
@@ -24,3 +19,11 @@ const mapStateToProps = (state) => {
   }
 }
 export default connect(mapStateToProps)(AllPost);
+
+/*          {this.props.postsReducer.posts.map((post) => (
+              <div key={post.id}>
+                {post.editing ? <EditComponent post={post} key={post.id} /> : <Post post={post}
+                                                                                    key={post.id} />}
+              </div>
+          ))}
+*/

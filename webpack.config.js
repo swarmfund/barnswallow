@@ -8,7 +8,7 @@ const htmlWebpackPlugin = new HtmlWebpackPlugin({  // Also generate a test.html
 });
 
 module.exports = {
-  entry: path.join(__dirname, 'src/index2.js'),
+  entry: path.join(__dirname, 'src/index.js'),
   module: {
     rules: [
       {
