@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PostForm from './PostForm';
 import AllPost from './AllPost';
 import RepoList from './RepoList';
-
+import BlockchainExplorer from "./BlockchainExplorer";
 
 const App = () => (
 
@@ -12,9 +13,8 @@ const App = () => (
           </div>
           <PostForm />
           <AllPost />
-
           <RepoList/>
-
+          <BlockchainExplorer />
         </div>
 );
 
