@@ -1,0 +1,31 @@
+import { connect } from 'react-redux'
+import {toggleLedger} from '../actions'
+import LedgerList from '../components/LedgerList'
+
+const getVisibleLedgers = (ledgers, filter) => {
+  switch (filter) {
+    case 'SHOW_ALL':
+      return ledgers;
+    case 'SHOW_COMPLETED':
+      return ledgers.filter(t => t.completed);
+    case 'SHOW_ACTIVE':
+      return ledgers.filter(t => !t.completed);
+    default:
+      throw new Error('Unknown filter: ' + filter)
+  }
+};
+
+const mapStateToProps = (state) => ({
+  transactions: getVisibleLedgers(state.ledgers.present, state.visibilityFilter)
+});
+
+const mapDispatchToProps = ({
+  onLedgerClick: toggleLedger
+});
+
+const LedgerExplorer = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(LedgerList);
+
+export default LedgerExplorer

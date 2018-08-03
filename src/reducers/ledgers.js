@@ -1,22 +1,23 @@
 import undoable, { includeAction } from 'redux-undo'
-import {ADD_TRANSACTION, TOGGLE_TRANSACTION} from "../constants/ActionTypes";
+import {ADD_LEDGER, TOGGLE_LEDGER} from "../constants/ActionTypes";
 
-const transaction = (state, action) => {
+
+const ledger = (state, action) => {
 
   console.log( state );
 
   switch (action.type) {
 
-    case ADD_TRANSACTION:
+    case ADD_LEDGER:
       return {
         id: action.id,
         text: action.text,
-        ledger: action.ledger,
-        fee: action.fee,
+        transactionCount: action.transactionCount,
+        operationCount: action.operationCount,
         timestamp: action.timestamp,
         completed: false
       }
-    case TOGGLE_TRANSACTION:
+    case TOGGLE_LEDGER:
       if (state.id !== action.id) {
         return state
       }
@@ -30,22 +31,22 @@ const transaction = (state, action) => {
   }
 }
 
-const transactions = (state = [], action) => {
+const ledgers = (state = [], action) => {
   switch (action.type) {
-    case ADD_TRANSACTION:
+    case ADD_LEDGER:
       return [
         ...state,
-        transaction(undefined, action)
+        ledger(undefined, action)
       ]
-    case TOGGLE_TRANSACTION:
+    case TOGGLE_LEDGER:
       return state.map(t =>
-          transactions(t, action)
+          ledgers(t, action)
       )
     default:
       return state
   }
 }
 
-const undoableTransactions = undoable(transactions, { filter: includeAction([ADD_TRANSACTION, TOGGLE_TRANSACTION]) })
+const undoableLedgers = undoable(ledgers, { filter: includeAction([ADD_LEDGER, TOGGLE_LEDGER]) })
 
-export default undoableTransactions
+export default undoableLedgers

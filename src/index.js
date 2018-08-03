@@ -3,13 +3,15 @@ import {render} from 'react-dom';
 import { Provider, connect } from 'react-redux';
 import configureStore from './store/configureStore'
 import App from './containers/App';
-import { addTransaction } from './actions'
+import {addLedger, addTransaction} from './actions'
 import './index.css';
 
 
 const store = configureStore();
 
 console.log(store.getState());
+
+store.dispatch(addLedger("2f28cd10384d152220d401dc26b3e8852f579f7f688c52e697fe831ac8fc6ad9", "5", "2", "22 minutes ago"));
 
 store.dispatch(addTransaction("2f28cd10384d152220d401dc26b3e8852f579f7f688c52e697fe831ac8fc6ad9", "19225497", "0.00001 XLM", "22 minutes ago"));
 store.dispatch(addTransaction("d618329aa7cf78f304a220b42050be23790cd71dc51b2f20708c05798d34d5f8", "19225497", "0.00006 XLM", "22 minutes ago"));

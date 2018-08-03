@@ -23,9 +23,9 @@ const mapDispatchToProps = ({
   onTransactionClick: toggleTransaction
 });
 
-const BlockchainExplorer = connect(
+const TransactionExplorer = connect(
     mapStateToProps,
     mapDispatchToProps
 )(TransactionList);
 
-export default BlockchainExplorer
+export default TransactionExplorer

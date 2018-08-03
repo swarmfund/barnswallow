@@ -1,8 +1,9 @@
-import * as types from '../constants/ActionTypes'
+import * as types from '../constants/ActionTypes';
 import {Swarm} from "swarm-sdk";
 
 async function fetchBalanceFromSwarmSdk()
 {
+
 
   console.log( "Swarm...");
 
@@ -20,7 +21,7 @@ async function fetchBalanceFromSwarmSdk()
 
 let nextTransactionId = 0;
 export const addTransaction = (text, ledger, fee, timestamp ) => ({
-  type: 'ADD_TRANSACTION',
+  type: types.ADD_TRANSACTION,
   id: nextTransactionId++,
   text,
   ledger,
@@ -28,12 +29,27 @@ export const addTransaction = (text, ledger, fee, timestamp ) => ({
   timestamp
 });
 
+let nextLedgerId = 0;
+export const addLedger = (text, transactionCount, operationCount, timestamp ) => ({
+  type: types.ADD_LEDGER,
+  id: nextLedgerId++,
+  text,
+  transactionCount,
+  operationCount,
+  timestamp
+});
+
 export const setVisibilityFilter = (filter) => ({
-  type: 'SET_VISIBILITY_FILTER',
+  type: types.SET_VISIBILITY_FILTER,
   filter
 });
 
 export const toggleTransaction = (id) => ({
-  type: 'TOGGLE_TRANSACTION',
+  type: types.TOGGLE_TRANSACTION,
+  id
+});
+
+export const toggleLedger = (id) => ({
+  type: types.TOGGLE_LEDGER,
   id
 });

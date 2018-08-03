@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import PostForm from './PostForm';
 import AllPost from './AllPost';
 import RepoList from './RepoList';
-import BlockchainExplorer from "./BlockchainExplorer";
+import TransactionExplorer from "./TransactionExplorer";
+import LedgerExplorer from "./LedgerExplorer";
+
+
 
 const App = () => (
 
@@ -14,7 +17,9 @@ const App = () => (
           <PostForm />
           <AllPost />
           <RepoList/>
-          <BlockchainExplorer />
+          <TransactionExplorer />
+          {/*<TransactionExplorer />*/}
+          <LedgerExplorer />
         </div>
 );
 
