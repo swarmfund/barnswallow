@@ -18,7 +18,6 @@ const App = () => (
           <AllPost />
           <RepoList/>
           <TransactionExplorer />
-          {/*<TransactionExplorer />*/}
           <LedgerExplorer />
         </div>
 );

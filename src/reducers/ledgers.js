@@ -2,7 +2,7 @@ import undoable, { includeAction } from 'redux-undo'
 import {ADD_LEDGER, TOGGLE_LEDGER} from "../constants/ActionTypes";
 
 
-const ledger = (state, action) => {
+const ledger = (state = {}, action) => {
 
   console.log( state );
 
@@ -47,6 +47,10 @@ const ledgers = (state = [], action) => {
   }
 }
 
+export default ledgers
+
+/*
 const undoableLedgers = undoable(ledgers, { filter: includeAction([ADD_LEDGER, TOGGLE_LEDGER]) })
 
 export default undoableLedgers
+*/

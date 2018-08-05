@@ -2,13 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Ledger = ({ onClick, completed, text, transactionCount, operationCount, timestamp }) => (
-    <tr
+    <tr className="c171"
         onClick={onClick}
         style={{
           textDecoration: completed ? 'line-through' : 'none'
         }}
     >
-      <td>{text}</td>
+      <td className="c176 c179">{text}</td>
       <td>{transactionCount}</td>
       <td>{operationCount}</td>
       <td>{timestamp}</td>

@@ -2,32 +2,34 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Ledger from './Ledger'
 
-const LedgerList = ({ ledgers, onLedgerClick }) => (
-    <div>
+const LedgerList = ({ledgers = [], onLedgerClick}) => (
+    <div className="content">
       <h1>Latest Ledgers</h1>
-      <table>
-        <thead>
-        <tr>
-          <th>Ledger ID</th>
-          <th>Transaction Count</th>
-          <th>Operation Count</th>
-          <th>Closed</th>
-        </tr>
-        </thead>
-        <tbody>
+      <div>
+        <div className="c102 c106 c103">
+          <table className="c169">
+            <thead className="c170">
+            <tr className="c171 c172">
+              <th className="c176 c179 c178">Ledger ID</th>
+              <th className="c176 c179 c178">Transaction Count</th>
+              <th className="c176 c179 c178">Operation Count</th>
+              <th className="c176 c179 c178">Closed</th>
+            </tr>
+            </thead>
+            <tbody className="c183">
+            {
+              ledgers.map(
+                  ledger =>
+                      <Ledger key={ledger.id} {...ledger} onClick={() => onLedgerClick(ledger.id)}/>
+              )
+            }
+            </tbody>
 
-          {
-            ledgers.map(ledger =>
-              <Ledger
-                  key={ledger.id}
-                  {...ledger}
-                  onClick={() => onLedgerClick(ledger.id)}
-              />
-          )}
-
-        </tbody>
-
-      </table>
+          </table>
+        </div>
+        <div className="home-more-links"><span className="c131 c141 c148"><a
+            href="">More transactions</a></span></div>
+      </div>
     </div>
 );
 

@@ -7,7 +7,7 @@ const transaction = (state, action) => {
 
   switch (action.type) {
 
-    case ADD_TRANSACTION:
+    case 'ADD_TRANSACTION':
       return {
         id: action.id,
         text: action.text,
@@ -16,11 +16,6 @@ const transaction = (state, action) => {
         timestamp: action.timestamp,
         completed: false
       }
-    case TOGGLE_TRANSACTION:
-      if (state.id !== action.id) {
-        return state
-      }
-
       return {
         ...state,
         completed: !state.completed
@@ -32,20 +27,27 @@ const transaction = (state, action) => {
 
 const transactions = (state = [], action) => {
   switch (action.type) {
-    case ADD_TRANSACTION:
+    case 'ADD_TRANSACTION':
       return [
         ...state,
         transaction(undefined, action)
       ]
-    case TOGGLE_TRANSACTION:
-      return state.map(t =>
-          transactions(t, action)
-      )
     default:
       return state
   }
 }
 
-const undoableTransactions = undoable(transactions, { filter: includeAction([ADD_TRANSACTION, TOGGLE_TRANSACTION]) })
+export default transactions
+/*
+const undoableTransactions = undoable(
+    transactions,
+    {
+      filter: includeAction([ADD_TRANSACTION, TOGGLE_TRANSACTION]),
+      initialHistory: { // initial history (e.g. for loading)
+        past: [],
+        present: {},
+        future: []
+      }
+    })
 
-export default undoableTransactions
+export default undoableTransactions*/

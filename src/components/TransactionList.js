@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Transaction from './Transaction'
 
-const TransactionList = ({ transactions, onTransactionClick }) => (
+const TransactionList = ({ transactions = [], onTransactionClick }) => (
     <div className="content">
     <h2>Latest Transactions</h2>
       <div>
@@ -18,7 +18,8 @@ const TransactionList = ({ transactions, onTransactionClick }) => (
           </thead>
           <tbody className="c183">
 
-              {transactions.map(transaction =>
+              {
+                transactions.map(transaction =>
                   <Transaction
                       key={transaction.id}
                       {...transaction}

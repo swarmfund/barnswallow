@@ -10,8 +10,7 @@ const rootReducer = combineReducers({
   post,
   repo,
   transactions,
-  ledgers,
-  visibilityFilter
+  ledgers
 });
 
 export default rootReducer;
