@@ -17,7 +17,7 @@ class RepoList extends Component
   render() {
     const { repos } = this.props;
     return (
-        <ul>this.renderItem</ul>
+        <ul>{this.renderItem}</ul>
     );
   }
 }

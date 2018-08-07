@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import {
   ADD_POST
-} from '../constants/ActionTypes';
+} from '../components/ActionTypes';
 
 import { post } from '../reducers/post';
 

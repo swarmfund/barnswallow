@@ -3,7 +3,7 @@ import {
   GET_REPOS_SUCCESS,
   GET_REPOS_FAIL,
 
-} from '../constants/ActionTypes';
+} from '../components/ActionTypes';
 
 export function listRepos(user) {
   return {

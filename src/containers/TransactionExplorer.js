@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import {toggleTransaction} from '../actions'
-import TransactionList from '../components/TransactionList'
+import {toggleTransaction} from '../components/transactions/actions'
+import TransactionList from '../components/transactions/TransactionList'
 
 // const getVisibleTransactions = (transactions, filter) => {
 //   switch (filter) {

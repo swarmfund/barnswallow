@@ -1,5 +1,6 @@
 import undoable, { includeAction } from 'redux-undo'
-import {ADD_LEDGER, TOGGLE_LEDGER} from "../constants/ActionTypes";
+import {ADD_LEDGER, TOGGLE_LEDGER} from "./actionTypes";
+
 
 
 const ledger = (state = {}, action) => {
@@ -31,7 +32,8 @@ const ledger = (state = {}, action) => {
   }
 }
 
-const ledgers = (state = [], action) => {
+const initialState = [];
+const ledgers = (state = initialState, action) => {
   switch (action.type) {
     case ADD_LEDGER:
       return [

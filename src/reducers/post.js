@@ -6,7 +6,7 @@ import {
   EDIT_POST,
   UPDATE,
   FETCH_BALANCE
-} from '../constants/ActionTypes';
+} from '../components/ActionTypes';
 
 const initialState = [];
 
@@ -54,7 +54,7 @@ async function fetchBalanceFromSwarmSdk()
   console.log( "Swarm...");
 
   let sdk = await Swarm.create('https://api-stage.swarm.fund');
-  
+
   let wallet = await sdk.api.wallets.get('preethi@swarm.fund', 'abc123');
   sdk.useWallet(wallet);
   console.log(sdk.wallet.accountId);

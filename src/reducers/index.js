@@ -2,9 +2,8 @@ import { combineReducers } from 'redux';
 
 import post, * as fromPost from './post';
 import repo, * as fromRepo from './repo';
-import transactions from './transactions';
-import ledgers from './ledgers';
-import visibilityFilter from './visibilityFilter';
+import transactions from '../components/transactions/reducer';
+import ledgers from '../components/ledger/reducer';
 
 const rootReducer = combineReducers({
   post,

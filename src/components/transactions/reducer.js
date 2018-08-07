@@ -1,5 +1,5 @@
 import undoable, { includeAction } from 'redux-undo'
-import {ADD_TRANSACTION, TOGGLE_TRANSACTION} from "../constants/ActionTypes";
+import {ADD_TRANSACTION, TOGGLE_TRANSACTION} from "./actionTypes";
 
 const transaction = (state, action) => {
 
@@ -7,7 +7,7 @@ const transaction = (state, action) => {
 
   switch (action.type) {
 
-    case 'ADD_TRANSACTION':
+    case ADD_TRANSACTION:
       return {
         id: action.id,
         text: action.text,
@@ -25,9 +25,11 @@ const transaction = (state, action) => {
   }
 }
 
-const transactions = (state = [], action) => {
+const initialState = []
+
+const transactions = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD_TRANSACTION':
+    case ADD_TRANSACTION:
       return [
         ...state,
         transaction(undefined, action)

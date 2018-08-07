@@ -6,26 +6,13 @@ import { base } from 'swarm-sdk'
 //import _ from 'lodash';
 
 
-function component()
-{
-  var element = document.createElement('div');
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
- // document.write('Quick Test');
- // console.log('app loaded');
-
-  return element;
-}
-
-
-
-
 
 async function explorer()
 {
 
 
 let sdk = await Swarm.create('https://api-stage.swarm.fund');
- 
+
 let wallet = await sdk.api.wallets.get('preethi@swarm.fund', 'abc123')
 sdk.useWallet(wallet);
 

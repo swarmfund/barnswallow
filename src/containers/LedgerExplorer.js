@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import {toggleLedger} from '../actions'
-import LedgerList from '../components/LedgerList'
+import {toggle} from '../components/ledger/actions'
+import LedgerList from '../components/ledger/LedgerList'
 
 // const getVisibleLedgers = (ledgers, filter) => {
 //   switch (filter) {
@@ -20,7 +20,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = ({
-  onLedgerClick: toggleLedger
+  onLedgerClick: toggle
 });
 
 const LedgerExplorer = connect(
