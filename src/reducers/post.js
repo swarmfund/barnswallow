@@ -64,26 +64,3 @@ async function fetchBalanceFromSwarmSdk()
 
   return sdk;
 }
-
-
-/*
-// this is the reducer - no 'async' on the outer function since it just returns a function
-export const login = (username, password) => {
-
-  // this one's 'async'
-  return async dispatch => {
-
-    // wrap in try to listen for Promise rejections - equivalent of '.catch()'
-    try {
-
-      // wait for the fetch to finish then dispatch the result
-      const data = await loginRequest(username, password);
-      dispatch(loginSuccess(data));
-    } catch (e) {
-
-      // catch errors from fetch
-      dispatch(loginFailure(e));
-    }
-  };
-};
-*/

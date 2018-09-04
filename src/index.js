@@ -1,11 +1,21 @@
 import React from 'react';
 import {render} from 'react-dom';
+import { ApolloProvider } from "react-apollo";
 import { Provider, connect } from 'react-redux';
 import configureStore from './store/configureStore'
 import App from './containers/App';
 import addTransaction from './components/transactions/actions'
 import add from './components/ledger/actions'
 import './index.css';
+
+
+import ApolloClient from "apollo-boost";
+import gql from "graphql-tag";
+import {Dogs, ExchangeRates} from "./ExchangeRateExample";
+
+const client = new ApolloClient({
+  uri: "https://w5xlvm3vzz.lp.gql.zone/graphql"
+});
 
 
 const store = configureStore();
@@ -25,10 +35,21 @@ store.dispatch(addTransaction("bb5aa5e421cfb0c129a05589f9d19a57a9dbeb134d43fa299
 store.dispatch(addTransaction("2cc2219ce48fb28654967313ca87bb35bdfe3c763393c13b8ace6dd2fcbf2c4a", "19225496", "0.00001 XLM", "21 minutes ago"));
 store.dispatch(addTransaction("1d3546d8ed7ab9accd90244c2538ea37f945cfda799207e691b32dce1b1a1a54", "19225496", "0.00001 XLM", "22 minutes ago"));
 
-render(
+
+const ApolloApp = () => (
+    <ApolloProvider client={client}>
+      <div>
+        <ExchangeRates/>
+        <Dogs/>
+      </div>
+    </ApolloProvider>
+);
+
+const ReduxApp = () => (
     <Provider store={store}>
       <App />
-    </Provider>,
-    document.getElementById('root')
+    </Provider>
 );
+
+render( <ApolloApp />, document.getElementById('root'));
 

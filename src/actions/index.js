@@ -3,8 +3,6 @@ import {Swarm} from "swarm-sdk";
 
 async function fetchBalanceFromSwarmSdk()
 {
-
-
   console.log( "Swarm...");
 
   let sdk = await Swarm.create('https://api-stage.swarm.fund');
@@ -18,9 +16,6 @@ async function fetchBalanceFromSwarmSdk()
 
   return sdk;
 }
-
-
-
 
 export const setVisibilityFilter = (filter) => ({
   type: types.SET_VISIBILITY_FILTER,
