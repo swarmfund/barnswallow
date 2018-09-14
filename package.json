@@ -12,7 +12,7 @@
     "redux-axios-middleware": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "redux-undo": "^0.6.1",
-    "swarm-sdk": "0.0.1"
+    "swarm-sdk": "git+ssh://git@github.com:swarmfund/js-swarm-sdk.git"
   },
   "scripts": {
     "wpbuild": "webpack --config webpack.config.js",
@@ -24,6 +24,7 @@
     "r-eject": "react-scripts eject"
   },
   "devDependencies": {
+    "@babel/runtime-corejs2": "^7.0.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
