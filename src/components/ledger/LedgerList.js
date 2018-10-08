@@ -4,7 +4,7 @@ import Ledger from './Ledger'
 
 const LedgerList = ({ledgers = [], onLedgerClick}) => (
     <div className="content">
-      <h1>Latest Ledgers</h1>
+      <h2>Latest Ledgers</h2>
       <div>
         <div className="c102 c106 c103">
           <table className="c169">
