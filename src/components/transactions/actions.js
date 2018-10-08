@@ -1,13 +1,13 @@
 import * as types from './actionTypes';
 
 let nextTransactionId = 0;
-export const addTransaction = (text, ledger, fee, timestamp ) => ({
+export const addTransaction = ( item ) => ({
   type: types.ADD_TRANSACTION,
   id: nextTransactionId++,
-  text,
-  ledger,
-  fee,
-  timestamp
+  text: item.id,
+  ledger: item.ledger,
+  fee: "21xlm",
+  timestamp: item.createdAt
 });
 
 export const toggleTransaction = (id) => ({
