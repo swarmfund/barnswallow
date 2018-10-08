@@ -23,9 +23,9 @@ const mapDispatchToProps = ({
   onLedgerClick: toggle
 });
 
-const LedgerExplorer = connect(
+const ExploreLedgers = connect(
     mapStateToProps,
     mapDispatchToProps
 )(LedgerList);
 
-export default LedgerExplorer
+export default ExploreLedgers

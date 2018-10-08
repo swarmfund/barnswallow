@@ -1,10 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
 import { Provider, connect } from 'react-redux';
-import configureStore from './store/configureStore'
+import configureStore from './store/configureStore';
 import App from './containers/App';
-import addTransaction from './components/transactions/actions'
-import add from './components/ledger/actions'
+import addTransaction from './components/transactions/actions';
+import addLedger from './components/ledger/actions';
 import './index.css';
 import {Swarm} from "swarm-sdk";
 
@@ -79,7 +79,7 @@ async function explorer(t=0)
       }
   );
 
-  console.log('trans', trans.data);
+//  console.log('trans', trans.data);
 
 //fetch detail about a specific transaction by specifying the transaction ID
   let TransID = await sdk.horizon.transactions.get('d3275938107d7dd585ef44b717e67597e0c736591b2901708c90162ea94e4e0c')
