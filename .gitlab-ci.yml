@@ -4,6 +4,7 @@ variables:
     TRAVIS_OS_NAME: linux
 
 stages:
+  - mirror
   - production
 
 production:
