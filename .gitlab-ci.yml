@@ -4,7 +4,6 @@ variables:
     TRAVIS_OS_NAME: linux
 
 stages:
-  - mirror
   - production
 
 production:
@@ -20,6 +19,7 @@ production:
     - dev-vlad
 
 mirror:
+    stage: production
     script:
         - apt-get -qq update && apt-get -qq install git
         - git config --global push.default simple
