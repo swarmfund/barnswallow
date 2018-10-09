@@ -14,6 +14,10 @@ production:
     - apt-get update -qy
     - apt-get install -y ruby-dev
     - gem install dpl
+    - mkdir ~/.ssh
+    - printf "%s\n" "${GITHUB_JSSWARMSDK_DEPLOY_KEY}" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     - dpl --provider=cloudfoundry --username=$CF_USERNAME --password=$CF_PASSWORD --organization=SwarmFund --api=api.run.pivotal.io --space=development
   only:
     - dev-vlad
