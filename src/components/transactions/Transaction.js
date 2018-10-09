@@ -19,7 +19,7 @@ Transaction.propTypes = {
   onClick: PropTypes.func.isRequired,
   completed: PropTypes.bool.isRequired,
   text: PropTypes.string.isRequired,
-  ledger: PropTypes.string.isRequired,
+  ledger: PropTypes.number.isRequired,
   fee: PropTypes.string.isRequired,
   timestamp: PropTypes.string.isRequired
 }

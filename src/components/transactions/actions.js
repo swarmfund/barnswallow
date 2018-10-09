@@ -6,7 +6,7 @@ export const addTransaction = ( item ) => ({
   id: nextTransactionId++,
   text: item.id,
   ledger: item.ledger,
-  fee: "21xlm",
+  fee: "–",
   timestamp: item.createdAt
 });
 
