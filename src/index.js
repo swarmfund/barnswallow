@@ -30,7 +30,7 @@ console.log(store.getState());
 
 
 
-async function explorer(t=0)
+async function explorer()
 {
 
   let sdk = await Swarm.create('https://api-stage.swarm.fund');
