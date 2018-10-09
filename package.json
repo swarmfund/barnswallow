@@ -15,6 +15,9 @@
     "redux-undo": "^0.6.1",
     "swarm-sdk": "git+ssh://git@github.com:swarmfund/js-swarm-sdk.git"
   },
+  "engines": {
+    "node": "8.11.4"
+  },
   "scripts": {
     "wpbuild": "webpack --config webpack.config.js",
     "wpstart": "webpack-dev-server --mode development",
