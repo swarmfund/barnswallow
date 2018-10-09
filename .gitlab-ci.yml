@@ -16,9 +16,10 @@ production:
     - gem install dpl
     - mkdir ~/.ssh
     - printf "%s\n" "${GITHUB_JSSWARMSDK_DEPLOY_KEY}" > ~/.ssh/id_rsa
+    - printf "Host github.com\n User git\n IdentityFile ~/.ssh/id_rsa\n Port 22" > ~/.ssh/config
     - chmod 600 ~/.ssh/id_rsa
     - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
-    - dpl --provider=cloudfoundry --username=$CF_USERNAME --password=$CF_PASSWORD --organization=SwarmFund --api=api.run.pivotal.io --space=development
+    - dpl --provider=cloudfoundry --username=$CF_USERNAME --password=$CF_PASSWORD --organization="Swarm Fund" --api=api.run.pivotal.io --space=development
   only:
     - dev-vlad
 

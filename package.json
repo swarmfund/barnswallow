@@ -16,7 +16,7 @@
     "swarm-sdk": "git+ssh://git@github.com:swarmfund/js-swarm-sdk.git"
   },
   "engines": {
-    "node": "8.11.4"
+    "node": "10.10.0"
   },
   "scripts": {
     "wpbuild": "webpack --config webpack.config.js",
