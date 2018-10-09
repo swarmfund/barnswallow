@@ -4,6 +4,7 @@ import { Provider, connect } from 'react-redux';
 import configureStore from './store/configureStore';
 import App from './containers/App';
 import addTransaction from './components/transactions/actions';
+import addAsset from './components/assetPairs/actions';
 import addLedger from './components/ledger/actions';
 import './index.css';
 import {Swarm} from "swarm-sdk";
@@ -18,6 +19,16 @@ console.log(store.getState());
 // ledger mock data
 store.dispatch(addLedger("2f28cd10384d152220d401dc26b3e8852f579f7f688c52e697fe831ac8fc6ad9", "5", "2", "22 minutes ago"));
 
+// asset mock data
+store.dispatch(addAsset("DS", 100, 20));
+    // {
+    //   code: 'DS',
+    //   availableForIssuance: 100,
+    //   maxIssuanceAmount: 20
+    // }))
+
+
+// transactions mockdata
 // store.dispatch(addTransaction("2f28cd10384d152220d401dc26b3e8852f579f7f688c52e697fe831ac8fc6ad9", "19225497", "0.00001 XLM", "22 minutes ago"));
 // store.dispatch(addTransaction("d618329aa7cf78f304a220b42050be23790cd71dc51b2f20708c05798d34d5f8", "19225497", "0.00006 XLM", "22 minutes ago"));
 // store.dispatch(addTransaction("2c6c600630886a28a432fac1d42351b8ebc73e9bb2fd26542a7eb8b2716542f7", "19225497", "0.00001 XLM", "21 minutes ago"));
@@ -88,7 +99,15 @@ async function explorer()
 
 //fetch list of all assets in the platform
   let assets = await sdk.horizon.assets.getAll()
-  console.log('assets', assets.data);
+
+  assets.data.map( function(asset)
+      {
+        console.log('asset:', asset);
+       // store.dispatch(addAsset( asset ));
+      }
+  );
+
+//  console.log('assets', assets.data);
 
 
 //get details about the particular asset
