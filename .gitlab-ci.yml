@@ -21,9 +21,7 @@ production:
     - ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
     - cd client
     - dpl --provider=cloudfoundry --username=$CF_USERNAME --password=$CF_PASSWORD --organization="Swarm Fund" --api=api.run.pivotal.io --space=development
-  only:
-    - dev
-
+  
 mirror:
     stage: production
     script:
