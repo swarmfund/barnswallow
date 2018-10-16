@@ -9,7 +9,7 @@ The following is a set of guidelines for contributing. These are mostly guidelin
 By far the quickest way to get the attention of the Swarm Fund's team is via our Telegram channel. Reach out there and you'll get directed to the right person on the team no matter what time of day it is =) https://t.me/swarmfund
 
 ## What should I know before I get started?
-For contributing to this project REACT and REDUX experience is certainly helpful. Consider this project a sandbox to learn about the [Swarm API](https://github.com/swarmfund/swarm-js-sdk) while building out a blockchain explorer that could benefit the entire community at the same time. 
+For contributing to this project REACT and REDUX experience is certainly helpful. Consider this project a sandbox to learn about the [Swarm API](https://github.com/swarmfund/js-swarm-sdk) while building out a blockchain explorer that could benefit the entire community at the same time. 
 
 ## How to Contribute?
 
