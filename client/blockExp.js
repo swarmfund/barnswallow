@@ -18,7 +18,7 @@ let sdk = await Swarm.create('https://api-stage.swarm.fund');
 
 
  
-let wallet = await sdk.api.wallets.get('preethi@swarm.fund', 'abc123');
+let wallet = await sdk.api.wallets.get('email', 'password');
 sdk.useWallet(wallet);
 //
 let accountID = sdk.wallet.accountId;
