@@ -13,18 +13,19 @@ async function explorer()
 
 
 let sdk = await Swarm.create('https://api-stage.swarm.fund');
-	
-/*let { wallet, recoverySeed } = await sdk.api.wallets.create(
+
+//create a wallet	
+let { wallet, recoverySeed } = await sdk.api.wallets.create(
   'my@email.com',
   'MyPassw0rd'
 )
 
 // Get the confirmation token from email
-await sdk.api.wallets.verifyEmail(token)*/
+await sdk.api.wallets.verifyEmail(token)
 
 
  
-let wallet = await sdk.api.wallets.get('email', 'password');
+let wallet = await sdk.api.wallets.get('my@email.com', 'MyPassw0rd');
 sdk.useWallet(wallet);
 //
 let accountID = sdk.wallet.accountId;
