@@ -28,8 +28,8 @@ This section guides you through submitting an enhancement suggestion, including 
 
 When you are creating an enhancement suggestion, please include as many details as possible. Fill in [the template](ISSUE_TEMPLATE.md), including the steps that you imagine you would take if the feature you're requesting existed.
 
-### Reporting Bugs
+### Reporting Bugs or asking questions
 
-Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on that repository and provide the following information by filling in [the template](ISSUE_TEMPLATE.md). We're mostly interested in bugs related to the Swarm
+Bugs are tracked as [GitHub issues](https://guides.github.com/features/issues/). Create an issue on that repository and provide the following information by filling in [the template](ISSUE_TEMPLATE.md). We're mostly interested in bugs or questions related to the Swarm SDK.
 
 Explain the problem and include additional details to help maintainers reproduce the problem—screenshots, webcasts, or animated GIFs are _**very**_ helpful!
